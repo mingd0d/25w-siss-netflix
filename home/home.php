@@ -1,5 +1,5 @@
 <?php
-$conn = mysqli_connect('localhost', 'root', '1110', 'review_system');
+$conn = mysqli_connect('localhost', 'root', '1111', 'review_system');
 
 if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
@@ -95,8 +95,8 @@ while ($row = mysqli_fetch_assoc($result)) {
     <header>
         <h1>Netflix</h1>
         <h2><a href="../account/logout.php">로그아웃</a></h2>
-        <h2><a href="../account/account_info.php">계정정보</a></h2>
-        <h2><a href="../genre/genre.php">장르선택</a></h2>
+        <h2><a href="../account/account_info.php">계정 정보</a></h2>
+        <h2><a href="../genre/genre.php">장르 선택</a></h2>
     </header>
 
     <!-- 검색창 -->

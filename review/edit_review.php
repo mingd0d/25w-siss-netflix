@@ -1,7 +1,7 @@
 <!-- edit_review.php
 리뷰 수정 -->
 <?php
-$conn = mysqli_connect('localhost', 'root', '1110', 'review_system');
+$conn = mysqli_connect('localhost', 'root', '1111', 'review_system');
 
 $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
 

@@ -3,7 +3,7 @@
 require('home.php');
 ?>
 <?php
-$conn = mysqli_connect('localhost', 'root', '1110', 'review_system');
+$conn = mysqli_connect('localhost', 'root', '1111', 'review_system');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
@@ -11,9 +11,9 @@ if ($conn->connect_error) {
 
 // 영화 데이터 배열
 $movies = [
-    ['title' => '발레리나', 'image' => '../movie1.png', 'genre' => 'movie1'],
-    ['title' => '전,란', 'image' => '../movie2.png', 'genre' => 'movie2'],
-    ['title' => '크로스', 'image' => '../movie3.png', 'genre' => 'movie3']
+    ['title' => '발레리나', 'image' => '../image/movie1.png', 'genre' => 'movie1'],
+    ['title' => '전,란', 'image' => '../image/movie2.png', 'genre' => 'movie2'],
+    ['title' => '크로스', 'image' => '../image/movie3.png', 'genre' => 'movie3']
 ];
 
 // 별점 데이터 가져오기

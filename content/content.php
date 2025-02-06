@@ -113,8 +113,8 @@ if (array_key_exists($genre, $contents)) {
 </style>
 <body>
     <h3>
-        <a href="../home/home.php?genre=<?= htmlspecialchars(preg_replace('/[0-9]/', '', $genre)) ?>">뒤로가기</a> 
-        <a href="../review/review.php?genre=<?php echo $genre; ?>" class="review">리뷰보기</a>
+        <a href="../home/home.php?genre=<?= htmlspecialchars(preg_replace('/[0-9]/', '', $genre)) ?>">목록</a> 
+        <a href="../review/review.php?genre=<?php echo $genre; ?>" class="review">리뷰 보기</a>
     </h3>
 </body>
 </html>

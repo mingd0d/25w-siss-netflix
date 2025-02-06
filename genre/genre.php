@@ -1,7 +1,7 @@
 <!-- genre.php
 장르 선택 페이지 -->
 <?php
-$conn = mysqli_connect('localhost', 'root', '1110', 'review_system');
+$conn = mysqli_connect('localhost', 'root', '1111', 'review_system');
 
 // 연결 오류 확인
 if ($conn->connect_error) {
