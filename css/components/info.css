@@ -1,0 +1,21 @@
+.info {
+    line-height: 1.6;
+    margin-bottom: 12px;
+}
+
+.info h2 {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.info p {
+    font-size: 12px;
+}
+
+.account-info {
+    font-size: 16px;
+    line-height: 3;
+    opacity: 0.9;
+    margin: 20px 0;
+}

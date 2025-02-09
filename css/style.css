@@ -1,0 +1,24 @@
+@import "reset.css";
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap');
+@import "variables.css";
+
+/* 요소 */
+@import "components/logo.css";
+@import "components/info.css";
+@import "components/input-form.css";
+@import "components/messages.css";
+@import "components/additional-links.css";
+
+/* 전체 페이지 스타일 */
+body {
+    background-color: #141414;
+    color: white;
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}

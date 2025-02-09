@@ -74,33 +74,42 @@ mysqli_close($conn);
     <head>
         <meta charset="utf-8">
         <title>Login - NETFLIX</title>
+        <link rel="stylesheet" type="text/css" href="css/style.css"> <!-- CSS 연결 -->
     </head>
+
     <body>
         <h1><a href="index.php">NETFLIX</a></h1>
-        <h2>로그인</h2>
-        <p>NETFLIX 계정으로 로그인하세요</p>
-        
-        <form action="index.php" method="post">
-            <p>
-                <input type="text" id="userID" name="userID" placeholder="아이디" required>
+
+        <!-- 로그인 컨테이너 -->
+        <div class="form-container">
+            <div class="info">
+                <h2>로그인</h2>
+                <p>가입하신 계정 정보를 입력해주세요</p>
+            </div>
+
+            <form id="input-form" action="index.php" method="post">
+                <div>
+                    <input type="text" id="userID" name="userID" placeholder="아이디" required>
+                </div>
+                <div>
+                    <input type="password" id="userPW" name="userPW" placeholder="비밀번호" required>
+                </div>
+                <div>
+                    <input type="submit" value="로그인">
+                </div>
+                <p class="error-message"><?= htmlspecialchars($login_error) ?></p>
+            </form>
+
+            <p class="additional-links">
+                아직 계정이 없으신가요?
+                <br>
+                <a href="account/sign_up.php">회원 가입</a>
             </p>
-            <p>
-                <input type="password" id="userPW" name="userPW" placeholder="비밀번호" required>
+            <p class="additional-links">
+                계정 정보를 찾고 계신가요?
+                <br>
+                <a href="account/find_id.php">아이디 찾기</a> 혹은 <a href="account/reset_pw.php">비밀번호 재설정</a>
             </p>
-            <p>
-                <input type="submit" value="로그인">
-            </p>
-            <p style="color: red;"><?= htmlspecialchars($login_error) ?></p>
-        </form>
-        <p>
-            아직 계정이 없으신가요?
-            <br>
-            <a href="account/sign_up.php">회원 가입</a>
-        </p>
-        <p>
-            계정 정보를 찾고 계신가요?
-            <br>
-            <a href="account/find_id.php">아이디 찾기</a> 혹은 <a href="account/reset_pw.php">비밀번호 재설정</a>
-        </p>
+        </div>
     </body>
 </html>

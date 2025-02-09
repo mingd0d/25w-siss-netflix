@@ -46,19 +46,31 @@ mysqli_close($conn);
 <head>
     <meta charset="utf-8">
     <title>계정 정보 - NETFLIX</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    <h1>계정 정보</h1>
-    <div class="info">
-        <p><?= htmlspecialchars($user['userName']) ?>님의 계정 정보</p>
-        <p>별명: <?= htmlspecialchars($user['userNick']) ?></p>
-        <p>전화번호: <?= htmlspecialchars($user['userPhone']) ?></p>
-        <p>아이디: <?= htmlspecialchars($user['userID']) ?></p>
+<h1><a href="../genre/genre.php">NETFLIX</a></h1>
+
+    <div class="form-container">
+        <div class="info">    
+            <h2>계정 정보</h2>
+            <p><?= htmlspecialchars($user['userName']) ?>님의 계정 정보</p>
+        </div>
+
+        <div class="account-info">
+            <p>별명: <?= htmlspecialchars($user['userNick']) ?></p>
+            <p>전화번호: <?= htmlspecialchars($user['userPhone']) ?></p>
+            <p>아이디: <?= htmlspecialchars($user['userID']) ?></p>
+        </div>
+        <div class="actions additional-links">
+            <a href="edit_account.php">계정 정보 수정</a>
+            <a href="delete_account.php" class="delete">회원 탈퇴</a>
+        </div>
+
+        <p class="additional-links">
+            <a href="logout.php">로그아웃</a>
+        </p>
     </div>
-    <div class="actions">
-        <a href="edit_account.php">계정 정보 수정</a>
-        <a href="delete_account.php" class="delete">회원 탈퇴</a>
-    </div>
-    <p><a href="logout.php">로그아웃</a></p>
 </body>
 </html>

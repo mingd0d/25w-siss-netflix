@@ -24,10 +24,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['star'], $_POST['comme
 
     $sql = "INSERT INTO reviews (genre, star, comment, user_id) VALUES ('$genre', '$star', '$comment', '$userID')";
     
-    echo "<pre>실행된 SQL: " . $sql . "</pre>";  // 디버깅
     if ($conn->query($sql)) {
         // 중복 실행 방지
-        // header("Location: review.php?genre=" . urlencode($genre));
+        header("Location: review.php?genre=" . urlencode($genre));
         exit();
     } else {
         echo "리뷰 등록 실패: " . $conn->error;

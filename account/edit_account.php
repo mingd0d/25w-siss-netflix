@@ -61,30 +61,36 @@ mysqli_close($conn);
 <head>
     <meta charset="utf-8">
     <title>계정 정보 수정 - NETFLIX</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
-    <h1>계정 정보 수정</h1>
-    <p><?= htmlspecialchars($user['userName']) ?>님의 계정 정보</p> <!-- 사용자명 출력 -->
-    <form action="edit_account.php" method="post">
-        <p>
-            <label for="userNick">별명:</label>
-            <input type="text" id="userNick" name="userNick" value="<?= htmlspecialchars($user['userNick']) ?>" required>
+    <div class="form-container">
+        <div class="info">
+            <h2>계정 정보 수정</h2>
+            <p><?= htmlspecialchars($user['userName']) ?>님의 계정 정보</p>
+        </div>
+
+        <form id="input-form" action="edit_account.php" method="post">
+            <p>
+                <input type="text" id="userNick" name="userNick" placeholder="별명" value="<?= htmlspecialchars($user['userNick']) ?>" required>
+            </p>
+            <p>
+                <input type="text" id="userPhone" name="userPhone" placeholder="전화번호" value="<?= htmlspecialchars($user['userPhone']) ?>" required>
+            </p>
+            <p>
+                <input type="submit" value="정보 수정">
+            </p>
+            <p class="success-message"><?= htmlspecialchars($update_success) ?></p>
+            <p class="error-message"><?= htmlspecialchars($update_error) ?></p>
+        </form>
+        
+        <p class="additional-links">
+            <a href="reset_pw.php">비밀번호 재설정</a>
         </p>
-        <p>
-            <label for="userPhone">전화번호:</label>
-            <input type="text" id="userPhone" name="userPhone" value="<?= htmlspecialchars($user['userPhone']) ?>" required>
+        <p class="additional-links">
+            <a href="account_info.php">계정 정보</a>로 돌아가기
         </p>
-        <p>
-            <input type="submit" value="정보 수정">
-        </p>
-        <p><?= htmlspecialchars($update_success) ?></p>
-        <p><?= htmlspecialchars($update_error) ?></p>
-    </form>
-    <p>
-        <a href="reset_pw.php">비밀번호 재설정</a>
-    </p>
-    <p>
-        <a href="account_info.php">계정 정보</a>로 돌아가기
-    </p>
+    </div>
 </body>
 </html>

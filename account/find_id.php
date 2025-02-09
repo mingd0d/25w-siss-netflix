@@ -45,26 +45,39 @@ mysqli_close($conn);
   <head>
     <meta charset="utf-8">
     <title>Find User ID - NETFLIX</title>
+    <link rel="stylesheet" href="../css/style.css">
   </head>
+
   <body>
-    <h1>아이디 찾기</h1>
-    <p>등록된 회원 정보를 입력해주세요</p>
+    <h1><a href="index.php">NETFLIX</a></h1>
 
-    <form action="find_id.php" method="post">
-      <p>
-        <input type="text" id="userName" name="userName" placeholder="이름" required>
-      </p>
-      <p>
-        <input type="text" id="userPhone" name="userPhone" placeholder="전화번호" required>
-      </p>
-      <p>
-        <input type="submit" value="아이디 찾기">
-      </p>
-    </form>
+    <div class="form-container">
+      <div class="info">
+        <h2>아이디 찾기</h2>
+        <p>등록된 회원 정보를 입력해주세요</p>
+      </div>
 
-    <p style="color: green;"><?= htmlspecialchars($found_id) ?></p>
-    <p style="color: red;"><?= htmlspecialchars($find_id_error) ?></p>
-    
-    <p><a href="../index.php">로그인</a> 화면으로 돌아가기</p>
+      <form id="input-form" action="find_id.php" method="post">
+        <div class="input-field">
+          <p>
+            <input type="text" id="userName" name="userName" placeholder="이름" required>
+          </p>
+          <p>
+            <input type="text" id="userPhone" name="userPhone" placeholder="전화번호" required>
+          </p>
+          
+          <p>
+            <input type="submit" value="아이디 찾기">
+          </p>
+        </div>
+      </form>
+
+      <p class="success-message"><?= htmlspecialchars($found_id) ?></p>
+      <p class="password-message"><?= htmlspecialchars($find_id_error) ?></p>
+      
+      <p class="additional-links">
+        <a href="../index.php">로그인</a> 화면으로 돌아가기
+      </p>
+    </div>
   </body>
 </html>

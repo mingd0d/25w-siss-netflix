@@ -1,0 +1,47 @@
+/* 입력 박스 */
+.form-container {
+    background-color: var(--back-color);
+    padding: 40px;
+    width: 350px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+/* 입력 필드 */
+#input-form input {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    border: none;
+    border-bottom: var(--main-border);
+    background-color: var(--back-color);
+    font-size: 16px;
+    color: white;
+    box-sizing: border-box;
+}
+
+#input-form input::placeholder {
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+#input-form input:focus {
+    outline: none;
+    border: none;
+    border-bottom: 1.5px solid var(--red);
+}
+
+/* 입력 버튼 */
+#input-form input[type="submit"], #delete-btn {
+    background-color: var(--red);
+    border: none;
+    border-radius: 6px;
+    color: rgba(255, 255, 255, 0.85);
+    cursor: pointer;
+    padding: 15px;
+    margin-top: 16px;
+}
+
+#delete-btn {
+    width: 100%;
+}

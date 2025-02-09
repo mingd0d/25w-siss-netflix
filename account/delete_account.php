@@ -69,28 +69,39 @@ mysqli_close($conn);
 <head>
     <meta charset="utf-8">
     <title>회원 탈퇴 - NETFLIX</title>
+    <link rel="stylesheet" href="../css/style.css">
+
 </head>
+
 <body>
-    <h1>회원 탈퇴</h1>
-    <p>탈퇴를 위해 비밀번호를 입력해주세요</p>
-    <form action="delete_account.php" method="post">
-        <input type="hidden" name="action" value="delete">
-        <p>
-            <label for="userPW">비밀번호:</label>
-            <input type="password" id="userPW" name="userPW" required>
-        </p>
-        <p>
-            <span>정말 탈퇴하시겠습니까?</span>
-            <br>
-            <span>지금까지 작성한 모든 리뷰가 삭제됩니다</span>
+    <h1><a href="../genre/genre.php">NETFLIX</a></h1>
+
+    <div class="form-container">
+        <div class="info">
+            <h2>회원 탈퇴</h2>
+            <p>탈퇴를 위해 비밀번호를 입력해주세요</p>
+        </div>
+
+        <form id="input-form" action="delete_account.php" method="post">
+            <input type="hidden" name="action" value="delete">
+            <p>
+                <input type="password" id="userPW" name="userPW" placeholder="비밀번호" required>
+            </p>
+            <p class="delete-message">
+                <span>정말 탈퇴하시겠습니까?</span>
+                <br>
+                <span>지금까지 작성한 모든 리뷰가 삭제됩니다</span>
+            </p>
             <button type="submit" id="delete-btn" disabled>탈퇴하기</button>
+
+            <p class="success-message"><?= htmlspecialchars($delete_success) ?></p>
+            <p class="error-message"><?= htmlspecialchars($delete_error) ?></p>
+        </form>
+
+        <p class="additional-links">
+            <a href="account_info.php">계정 정보</a>로 돌아가기
         </p>
-        <p style="color: green;"><?= htmlspecialchars($delete_success) ?></p>
-        <p style="color: red;"><?= htmlspecialchars($delete_error) ?></p>
-    </form>
-    <p>
-        <a href="account_info.php">계정 정보</a>로 돌아가기
-    </p>
+    </div>
 
     <script>
         const userPWInput = document.getElementById('userPW');

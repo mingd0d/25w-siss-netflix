@@ -1,0 +1,38 @@
+/* 오류 메시지 */
+.error-message {
+    color: var(--red);
+    opacity: 0.9;
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* 비밀번호 일치 */
+#password-message {
+    font-size: 12px;
+    opacity: 0.9;
+}
+
+/* 비밀번호가 일치하는 경우 */
+.valid {
+    color: var(--gray);
+}
+
+/* 비밀번호가 일치하지 않는 경우 */
+.invalid {
+    color: var(--red);
+}
+
+/* 아이디 정보 */
+.success-message {
+    color: var(--gray);
+    font-size: 14px;
+    margin-top: 10px;
+}
+
+/* 탈퇴 안내 문구 */
+.delete-message {
+    color: var(--gray);
+    font-size: 14px;
+    line-height: 1.6;
+    margin-top: 8px
+}
