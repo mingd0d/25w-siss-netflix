@@ -64,8 +64,12 @@ mysqli_close($conn);
             <p>아이디: <?= htmlspecialchars($user['userID']) ?></p>
         </div>
         <div class="actions additional-links">
-            <a href="edit_account.php">계정 정보 수정</a>
-            <a href="delete_account.php" class="delete">회원 탈퇴</a>
+            <p>
+                <a href="edit_account.php">계정 정보 수정</a>
+            </p>
+            <p>
+                <a href="delete_account.php" class="delete">회원 탈퇴</a>
+            </p>
         </div>
 
         <p class="additional-links">

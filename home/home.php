@@ -29,7 +29,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <title>홈</title>
     <link rel="stylesheet" href="../s.css">
     <style>
-        h1 {
+        h1.logo a {
             color: red;
         }
         h2>a:hover {
@@ -93,7 +93,7 @@ while ($row = mysqli_fetch_assoc($result)) {
 </head>
 <body>
     <header>
-        <h1>Netflix</h1>
+        <h1 class="logo"><a href="../genre/genre.php">NETFLIX</a></h1>
         <h2><a href="../account/logout.php">로그아웃</a></h2>
         <h2><a href="../account/account_info.php">계정 정보</a></h2>
         <h2><a href="../genre/genre.php">장르 선택</a></h2>
@@ -112,7 +112,7 @@ while ($row = mysqli_fetch_assoc($result)) {
     <div class="sort">
         <h2>정렬</h2>
         <h2>|</h2>
-        <h2><a href="sort.php">별점순</a></h2>
+        <h2><a href="sort.php?genre=<?= urlencode($genre) ?>">별점순</a></h2>
     </div>
 
     <!-- 콘텐츠 출력 -->

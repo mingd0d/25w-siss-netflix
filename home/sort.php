@@ -1,29 +1,36 @@
-<!-- 별점순 정렬 미완성 -->
 <?php
 require('home.php');
-?>
-<?php
+
 $conn = mysqli_connect('localhost', 'root', '1111', 'review_system');
 
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-// 영화 데이터 배열
-$movies = [
-    ['title' => '발레리나', 'image' => '../image/movie1.png', 'genre' => 'movie1'],
-    ['title' => '전,란', 'image' => '../image/movie2.png', 'genre' => 'movie2'],
-    ['title' => '크로스', 'image' => '../image/movie3.png', 'genre' => 'movie3']
-];
+// GET 요청으로 장르 값 가져오기
+$genre = isset($_GET['genre']) ? mysqli_real_escape_string($conn, $_GET['genre']) : 'movie'; // 기본값 movie
+
+// 검색어 처리
+$query = isset($_GET['query']) ? mysqli_real_escape_string($conn, $_GET['query']) : '';
+
+// 해당 장르의 모든 세부 장르 가져오기
+$sql = "SELECT filename, title, genre FROM images WHERE genre LIKE '$genre%'";
+$result = mysqli_query($conn, $sql);
+
+$movies = [];
+while ($row = mysqli_fetch_assoc($result)) {
+    $movies[] = $row;
+}
 
 // 별점 데이터 가져오기
 $starData = [];
+
 foreach ($movies as $movie) {
-    $genre = $movie['genre'];
-    $query = "SELECT AVG(star) as avg_star FROM reviews WHERE genre = '$genre'";
+    $movieGenre = $movie['genre']; // 기존 $genre를 덮어쓰지 않도록 변경
+    $query = "SELECT AVG(star) as avg_star FROM reviews WHERE genre = '$movieGenre'";
     $result = $conn->query($query);
     $row = $result->fetch_assoc();
-    $starData[$genre] = $row['avg_star'] ?? null; // 별점이 없으면 null
+    $starData[$movieGenre] = $row['avg_star'] ?? null; // 별점이 없으면 null
 }
 
 // 별점순 정렬
@@ -33,20 +40,16 @@ usort($movies, function ($a, $b) use ($starData) {
     return $starB <=> $starA; // 높은 별점순으로 정렬
 });
 
-// 검색어 처리
-$query = isset($_GET['query']) ? $_GET['query'] : '';
-
 // 영화 출력
 foreach ($movies as $movie) {
     $isVisible = ($query === '' || stripos($movie['title'], $query) !== false);
     $avgStar = isset($starData[$movie['genre']]) ? number_format($starData[$movie['genre']], 1) : '등록된 별점이 없습니다'; // 소수점 아래 1자리 출력
-    echo "<a href='content.php?genre={$movie['genre']}' class='{$movie['genre']}'>
-            <img src='{$movie['image']}' alt='{$movie['title']}'>
+    
+    echo "<a href='../content/content.php?genre={$movie['genre']}' class='{$movie['genre']}'>
+            <img src='{$movie['filename']}' alt='{$movie['title']}'>
           </a>";
     echo "<h4>{$movie['title']} (⭐ {$avgStar})</h4>";
 }
+
 $conn->close();
 ?>
-        </div>
-    </body>
-</html>
